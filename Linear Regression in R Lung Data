@@ -1,5 +1,4 @@
-#In this R project I will conduct a simple linear regression using a medical 
-#dataset.
+#In this R project I will conduct a simple linear regression using a medical dataset.
 #I have a hunch that age will be positively correlated with lung capacity.
 #I will use statistical testing to see if my hunch is right.
 
@@ -9,9 +8,7 @@
 View(LungCapData)
 ```
 
-#When designing a test model it's important to know which types of data we are
-#working with. Let's call the type or "class" of variable to make sure we're
-#on balance.
+#When designing a test model it's important to know which types of data we are working with. Let's call the type or "class" of variable to make sure we're on balance.
 
 ```{r}
 class(Age)
@@ -31,9 +28,7 @@ plot(Age, LungCap, main ="Age X LungCap Scatterplot")
 ```
 
 
-#In the scatterplot we can see a linear trend where age is positiely correlated
-#with lung capacity. Note that this is from a study on young people, 
-#so it makes sense.
+#In the scatterplot we can see a linear trend where age is positiely correlated with lung capacity. Note that this is from a study on young people, so it makes sense.
 
 #Let's find the Pearson correlation statistic for this relationship.
 
@@ -50,14 +45,12 @@ mod <- lm(LungCap ~ Age)
 ```
 
 
-#Now let's have a look at the other statistics associated with this calculation.
-#This will show us the residuals, the standard error, the multiple R squared 
-#adjusted R squared, and the F statistic.
+#Now let's have a look at the other statistics associated with this calculation. 
+#This will show us the residuals, the standard error, the multiple R squared, adjusted R squared, and the F statistic.
 
 ```{r}
 summary(mod)
 ```
-
 
 #Let's examine the components of our model:
 
@@ -65,13 +58,11 @@ summary(mod)
 attributes(mod)
 ```
 
-
 #And let's say we JUST wanted to look at the coefficients in our test results:
 
 ```{r}
 mod$coefficients
 ```
-
 
 #R also has this other syntax for the same function:
 
@@ -79,9 +70,7 @@ mod$coefficients
 coef(mod)
 ```
 
-
-#On our visualisation, let's now edit the graphics by adding a 
-#regression line and making it red and a bit wider.
+#On our visualisation, let's now edit the graphics by adding a regression line and making the line red and a bit wider.
 
 ```{r}
 plot(Age, LungCap, main ="Age X LungCap Scatterplot")
@@ -93,7 +82,6 @@ abline(mod, col=2, lwd=3)
 ```{r}
 confint(mod)
 ```
-
 
 #Now let's explore the same data with changed confidence intervals:
 
@@ -107,7 +95,6 @@ confint(mod, level=.098)
 ```{r}
 anova(mod)
 ```
-
 
 #We have determined using linear regression that among this group of participants, lung capacity is strongly positively correlated with age. Thanks for reading!
 
